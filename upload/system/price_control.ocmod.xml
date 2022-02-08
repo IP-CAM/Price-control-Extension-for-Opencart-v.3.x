@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name>Price Control</name>
+	<code>price_conrol</code>
+	<version>2.0</version>
+	<author>Admin</author>
+	<link></link>
+
+	<file path="admin/controller/catalog/product.php">
+		<operation>
+			<search><![CDATA[protected function getForm() {]]></search>
+			<add position="after"><![CDATA[
+		$price_control = $this->config->get('module_price_control');
+		if(!empty($this->config->get('module_price_control_status')) && isset($price_control['product'])) $this->document->addScript('view/price_control/javascript/price_control_product_form.js');]]>
+			</add>
+		</operation>
+
+		<operation>
+			<search><![CDATA[protected function getList() {]]></search>
+			<add position="after"><![CDATA[
+		$price_control = $this->config->get('module_price_control');
+		if(!empty($this->config->get('module_price_control_status')) && isset($price_control['list'])) $this->document->addScript('view/price_control/javascript/price_control_product_list.js');
+			]]></add>
+		</operation>
+
+		<operation>
+			<search><![CDATA[$this->model_catalog_product->editProduct($this->request->get['product_id'], $this->request->post)]]></search>
+			<add position="before"><![CDATA[
+		$this->load->model('extension/module/price_control');
+		if (isset($this->request->post['price_conrol'])) {
+			$this->model_extension_module_price_control->addProductScore($this->request->get['product_id'], $this->request->post['price_conrol']);
+		} else {
+			$this->model_extension_module_price_control->addProductScore($this->request->get['product_id']);
+		}
+			]]></add>
+		</operation>
+	</file>
+
+	<file path="admin/model/catalog/product.php">
+		<operation>
+			<search><![CDATA[public function deleteProduct($product_id) {]]></search>
+			<add position="after"><![CDATA[
+		$this->db->query("DELETE FROM " . DB_PREFIX . "price_control_to_product WHERE product_id = '" . (int)$product_id . "'");
+			]]></add>
+		</operation>
+	</file>
+
+	<file path="admin/view/template/catalog/product_list.twig">
+		<operation>
+			<search index="1"><![CDATA[<tr>]]></search>
+			<add position="replace"><![CDATA[<tr id="product{{ product.product_id }}">]]></add>
+		</operation>
+	</file>
+
+</modification>

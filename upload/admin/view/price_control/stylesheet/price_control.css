@@ -1,0 +1,139 @@
+/*.alert-dismissable {
+	position: fixed;
+	z-index: 9999;
+	right: 3%;
+	top: 20%;
+	display:none;
+}*/
+
+#popup_content {
+	position: fixed;
+	z-index: 9999;
+	right: 3%;
+	top: 20%;
+}
+
+.btn-group-vertical button:last-child {
+	margin-top: 5px !important;
+}
+
+#parsing_name, #parsing_copy_name, #listUrl {
+	text-align: center;
+	font-weight: bolder;
+  	font-size: medium;
+	border-right-width: 15px;
+	border-color: white;
+	margin-bottom: 0px;
+	padding: 7px 10px;
+}
+
+.popover-title {
+	font-size: inherit !important;
+	font-weight: inherit !important;
+	display: inherit !important;
+}
+
+.editableform .form-group {
+	margin-left: inherit !important;
+  margin-right: inherit !important;
+}
+
+.editableform .fa {
+	font-size: inherit !important;
+}
+
+#tab-parsing td.text-left .editable-container, #tab-parsing td.text-left .editable-container .control-group, #tab-parsing td.text-left .editable-container .control-group .editable-input, #tab-parsing td.text-left .editable-container .control-group .editable-input input {
+	width: 100% !important;
+}
+
+.parsing-value {
+	padding-top: inherit;
+	max-height: 700px;
+  overflow: auto;
+}
+
+.parsing-value .table {
+	border-top-width: inherit;
+}
+
+.parsing-value thead th {
+	position: sticky;
+	top: 0;
+	background: #b3b1b1;
+	z-index: 1;
+}
+
+.parsing-value thead .update_all th {
+	top: 33px;
+}
+
+.settings, .settings-button .fa-minus {
+	display:none;
+}
+
+.settings-button {
+	outline: none !important;
+}
+
+td div.row {
+	margin: 0;
+}
+
+td .input-group {
+	width: 100%;
+}
+
+td .input-group-addon {
+	width: 30%;
+}
+
+#tab-listUrl textarea:hover {
+	cursor: copy;
+}
+
+.select-group {
+	margin-top: 5px;
+}
+
+.select-group span {
+	padding: 0;
+    border: 0;
+
+}
+
+.select-group~.pull-right{
+	padding: 5px;
+}
+
+#tab-scores thead tr td:first-child {
+	width: 20px;
+}
+
+#tab-scores td {
+	vertical-align: inherit;
+}
+
+#tab-scores td div.input-group {
+	z-index: 0;
+}
+
+#tab-uload .text-center.col-sm-6 .form-group .text-left {
+	 padding-top: 7px;
+}
+
+#pars_input_product {
+	display: none;
+}
+
+#tab-contractor tr.update_all {
+	display: none;
+}
+
+#tab-contractor #update_all_name, #tab-contractor #update_all_val, #tab-contractor #update_all_val ~ button {
+	display:unset;
+	width:unset;
+}
+
+#tab-contractor #update_all_val {
+	margin-left:10px;
+}
